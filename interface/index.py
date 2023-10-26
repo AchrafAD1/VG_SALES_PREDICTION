@@ -19,14 +19,22 @@ encoder = LabelEncoder()
 data['Genre'] = encoder.fit_transform(data['Genre'])
 data['Publisher'] = encoder.fit_transform(data['Publisher'])
 
+data_df = pd.DataFrame(data, columns=['Genre', 'Publisher'])
+
+# Save the DataFrame to a CSV file
+data_df.to_csv('xtrain.csv', index=False)
+
 # Define features (independent variables) and target (dependent variable)
-features = ['Year_of_Release', 'Genre', 'Publisher', 'NA_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales', 'Critic_Score', 'Critic_Count', 'User_Score', 'User_Count']
+features = [ 'Genre', 'Publisher', 'Critic_Score', 'Critic_Count', 'User_Score', 'User_Count']
 target = ['EU_Sales']
 
 # Split the data into a training set and a testing set
 X = data[features]
 y = data[target]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+
+
 
 # Normalize or scale numerical features (if needed)
 scaler = StandardScaler()
@@ -51,12 +59,12 @@ print(f"R-squared (R2) Score: {r2}")
 
 # Predict the game with the highest European sales in 2017
 # Filter the dataset for games released in or before 2017
-games_2017 = data[data['Year_of_Release'] <= 2017]
+games_2017 = data
 
 # Use the trained model to predict European sales for these games
-X_2017 = games_2017[features]
-X_2017 = scaler.transform(X_2017)
-predicted_sales_2017 = model.predict(X_2017)
+data = data[features]
+data = scaler.transform(data)
+predicted_sales_2017 = model.predict(data)
 
 # Find the game with the highest predicted European sales
 max_sales_index = predicted_sales_2017.argmax()
