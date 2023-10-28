@@ -2,7 +2,7 @@ var accounts =  [
     {'team': 'data integration', 'password': 'MDSO2024', 'path': 'data_integration.html'},
     {'team': 'data cleaning', 'password': 'MDSO2024', 'path': 'data_cleaning.html'},
     {'team': 'data science', 'password': 'MDSO2024', 'path': 'model.html'},
-    {'team': 'testing', 'password': 'MDSO2024', 'path': 'testing.html'}
+    {'team': 'testing', 'password': 'MDSO2024', 'path': 'test.html'}
 ]
 
 
