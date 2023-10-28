@@ -7,9 +7,8 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 
 # Load the dataset
-data = pd.read_csv('../Cleaned Data 2.csv')
+data = pd.read_csv('../data1.csv')
 
-# Data Preprocessing
 
 # Handle missing values (if any)
 data.dropna(inplace=True)

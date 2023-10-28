@@ -1,39 +1,17 @@
 import pandas as pd
-import random
 
-# Load the CSV file into a DataFrame
-csv_file = "../Cleaned Data 2.csv"
+# Read the CSV file
+input_file = 'data1.csv'
+df = pd.read_csv(input_file)
 
+# Define the columns to be rounded
+sales_columns = ['MA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
 
-def hhhh ():
-    df = pd.read_csv(csv_file)
-    # Generate a new row with missing values
-    new_row = {
-        "Name": "New Game",
-        "Year_of_Release": random.randint(1990, 2023),
-        "Genre": "Random Genre",
-        "Publisher": "Random Publisher",
-        "NA_Sales": [random.uniform(0,2), None, None, None, None, None][random.randint(0, 1)],
-        "EU_Sales": [random.uniform(0,2),None,None, None, None, None, None][random.randint(0, 1)],
-        "JP_Sales": [random.uniform(0,2),None,None, None, None, None, None][random.randint(0, 1)],
-        "Other_Sales": [random.uniform(0,2),None,None, None, None, None, None][random.randint(0, 1)],
-        "Global_Sales": [random.uniform(0,2),None,None, None, None, None, None][random.randint(0, 1)],
-        "Critic_Score":  [random.randint(0, 100),None, None, None, None, None][random.randint(0, 1)],
-        "Critic_Count": [random.randint(0, 100),None, None, None, None, None][random.randint(0, 1)],
-        "User_Score": [random.uniform(0,2),None][random.randint(0, 1)],
-        "User_Count": [random.randint(0, 1000),None, None, None, None, None][random.randint(0, 1)],
-        "Developer": "Random Developer",
-        "Rating": "Random Rating"
-    }
+# Round the values in the specified columns to two decimal places
+df[sales_columns] = df[sales_columns].round(2)
 
-    # Select a random position to insert the new row
-    insert_pos = random.randint(2, len(df))
+# Write the modified data to a new CSV file
+output_file = 'output.csv'
+df.to_csv(output_file, index=False)
 
-    # Insert the new row into the DataFrame
-    df = pd.concat([df.iloc[:insert_pos], pd.DataFrame([new_row]), df.iloc[insert_pos:]]).reset_index(drop=True)
-
-    # Save the modified DataFrame back to the CSV file
-    df.to_csv(csv_file, index=False)
-
-for i in range(3000):
-    hhhh()
+print("Values with more than two digits after the decimal point have been rounded and saved to", output_file)

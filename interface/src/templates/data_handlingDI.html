@@ -7,6 +7,7 @@
   <title>Modernize Free</title>
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
 </head>
 
 <body>
@@ -34,7 +35,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link active" href="./data_integration.html" aria-expanded="false">
+              <a class="sidebar-link" href="./data_integration.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -42,7 +43,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./data_handlingDI.html" aria-expanded="false">
+              <a class="sidebar-link" href="./data_handling.html" aria-expanded="false">
                 <span>
                   <img src="../assets/images/icons/database.svg">
                 </span>
@@ -202,18 +203,158 @@
       <!--  Header End -->
       <div class="container-fluid">
         <!--  Row 1 -->
-        <div class="row">
-            <table class="table table-striped table-hover table-bordered border-dark">
-                <thead id="thead" class="border-light"></thead>
-                <tbody id="tbody"></tbody>
-            </table>
+        <div class="row p-1">
+          <style>
+
+            /* Main content area */
+        
+            #content {
+              margin: 20px 10px;
+              text-align: center;
+              -moz-user-select: none;
+              -webkit-user-select: none;
+              user-select: none;
+            }
+        
+            /* Header/footer boxes */
+        
+            .wideBox {
+              clear: both;
+              text-align: center;
+              margin: 70px;
+              padding: 10px;
+              background: #ebedf2;
+              border: 1px solid #333;
+            }
+        
+            .wideBox h1 {
+              font-weight: bold;
+              margin: 20px;
+              color: #666;
+              font-size: 1.5em;
+            }
+        
+            /* Slots for final card positions */
+        
+            #cardSlots {
+              margin: 50px auto 0 auto;
+              background: #ddf;
+            }
+        
+            /* The initial pile of unsorted cards */
+        
+            #cardPile {
+              margin: 0 auto;
+              background: #ffd;
+            }
+        
+            #cardSlots, #cardPile {
+              width: 100%;
+              height: 250px;
+              padding: 20px;
+              border: 2px solid #333;
+              -moz-border-radius: 10px;
+              -webkit-border-radius: 10px;
+              border-radius: 10px;
+              -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+              -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+              box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+              display: flex !important;
+              flex-wrap : wrap;
+              gap: 0.5em;
+            }
+        
+            /* Individual cards and slots */
+        
+            #cardSlots div, #cardPile div {
+              float: left;
+              width: fit;
+              height: fit;
+              padding: 10px;
+              padding-top: 20px;
+              padding-bottom: 0;
+              border: 2px solid #333;
+              -moz-border-radius: 10px;
+              -webkit-border-radius: 10px;
+              border-radius: 10px;
+              background: #fff;
+            }
+        
+            #cardSlots div:first-child, #cardPile div:first-child {
+              margin-left: 0;
+            }
+        
+            #cardSlots div.hovered {
+              background: #aaa;
+            }
+        
+            #cardSlots div {
+              border-style: dashed;
+              min-width: 80px;
+              margin-x: 0.5rem;
+            }
+        
+            #cardPile div {
+              background: #666;
+              color: #fff;
+              font-size: 25px;
+              text-shadow: 0 0 3px #000;
+            }
+        
+            #cardPile div.ui-draggable-dragging {
+              -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+              -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+              box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+            }
+        
+            /* Individually coloured cards */
+            #cardSlots div.correct {
+              padding : 5px;
+              background: #f1c232;
+            }
+        
+        
+            /* "You did it!" message */
+            #successMessage {
+              position: absolute;
+              left: 580px;
+              top: 250px;
+              width: 0;
+              height: 0;
+              z-index: 100;
+              background: #dfd;
+              border: 2px solid #333;
+              -moz-border-radius: 10px;
+              -webkit-border-radius: 10px;
+              border-radius: 10px;
+              -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+              -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+              box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+              padding: 20px;
+              padding-bottom: 100px!important;
+            }
+          </style>
+          <div id="content">
+            <div id="cardPile"></div>
+            <div id="cardSlots"></div>
+            <div style="display:flex; justify-content:end; font-size:30px;">
+              <button id="btn" type="button" class="btn btn-outline-success disabled m-3 me-0 px-4 py-2" style="cursor:not-allowed!important; pointer-events:visible!important;">Envoyer</button>
+            </div>
+            
+            <div id="successMessage" class="pb-3">
+              <h2>You did it!</h2>
+              <button id="showDataBtn" type="button" class="btn btn-success m-1">See results!</button>
+            </div>
+          </div>
         </div>
        
       </div>
     </div>
   </div>
-  <script src="../assets/js/data_integration.js"></script>
+  <script src="../assets/js/data_handling.js"></script>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+
+  <script src="../assets/js/drag&drop.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
