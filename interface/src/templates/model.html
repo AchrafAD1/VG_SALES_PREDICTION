@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDSO Games</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../assets/images/logos/favicon.png"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  </head>
+
+  <body>
+    <!--  Body Wrapper -->
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin6"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+    >
+      <!-- Sidebar Start -->    
+      <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./data_integration.html" class="text-nowrap logo-img flex" >
+            <img src="../assets/images/logos/Capture-removebg-preview (1).png" height="60" alt="" />
+            <h1 class="fs-10 d-inline">MDSO</h1>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./Model.html" >
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Model</span>
+              </a>
+            </li>
+            
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+      <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="body-wrapper">
+        <!--  Header Start -->
+        <header class="app-header">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav">
+              <li class="nav-item d-block d-xl-none">
+                <a
+                  class="nav-link sidebartoggler nav-icon-hover"
+                  id="headerCollapse"
+                  href="javascript:void(0)"
+                >
+                  <i class="ti ti-menu-2"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                  <i class="ti ti-bell-ringing"></i>
+                  <div class="notification bg-primary rounded-circle"></div>
+                </a>
+              </li>
+            </ul>
+            <div
+              class="navbar-collapse justify-content-end px-0"
+              id="navbarNav"
+            >
+              <ul
+                class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
+              >
+                <li class="nav-item fs-4">Data Science Team</li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link nav-icon-hover"
+                    href="javascript:void(0)"
+                    id="drop2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="../assets/images/profile/user-1.jpg"
+                      alt=""
+                      width="35"
+                      height="35"
+                      class="rounded-circle"
+                    />
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                    aria-labelledby="drop2"
+                  >
+                    <div class="message-body">
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-user fs-6"></i>
+                        <p class="mb-0 fs-3">My Profile</p>
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-mail fs-6"></i>
+                        <p class="mb-0 fs-3">My Account</p>
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-list-check fs-6"></i>
+                        <p class="mb-0 fs-3">My Task</p>
+                      </a>
+                      <a
+                        href="./authentication-login.html"
+                        class="btn btn-outline-primary mx-3 mt-2 d-block"
+                        >Logout</a
+                      >
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <!--  Header End -->
+        <div class="container-fluid">
+          <fieldset class="border rounded p-2">
+            <legend>Importing Librairies :</legend>
+            <div class="d-flex align-items-center justify-content-start">
+              <p class="fs-5 pt-3 me-2">
+                <span style="color: blueviolet">import</span>
+              </p>
+
+              <select
+                class="form-select"
+                style="width: 140px"
+                aria-label="Default select example"
+                data-correct = "pandas"
+              >
+                <option value="pandas" selected>pandas</option>
+                <option value="1">spacy</option>
+                <option value="2">sklearn</option>
+                <option value="3">numpy</option>
+              </select>
+              <p class="fs-5 pt-3 me-2">as pd</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-start">
+              <p class="fs-5 pt-3 me-2">
+                <span style="color: rgb(255, 128, 0)">from</span>
+                sklearn.linear_model
+                <span style="color: blueviolet">import</span>
+              </p>
+              <select
+                class="form-select"
+                style="width: 220px"
+                aria-label="Default select example"
+                data-correc = ""
+              >
+                <option selected>LinearRegression</option>
+                <option value="1">DecisionTreeClassifier</option>
+                <option value="2">LogisticRegression</option>
+              </select>
+            </div>
+            <div class="d-flex align-items-center justify-content-start">
+              <p class="fs-5 pt-3 me-2">
+                <span style="color: rgb(255, 128, 0)">from</span>
+                sklearn.preprocessing
+                <span style="color: blueviolet">import</span> StandardScaler,
+                LabelEncoder
+              </p>
+            </div>
+            <button id="run_import" class="btn btn-success align-self-center">
+              Run
+            </button>
+            <div
+              id="import_output"
+              class="border rounded d-none"
+              ">
+              <p style="color: rgb(43, 171, 8)" id="output_import">
+                Librairies imported successufully !
+              </p>
+            </div>
+          </fieldset>
+          <fieldset class="border rounded p-2 mt-2">
+            <legend>Encoding Data :</legend>
+            <div class="d-flex align-items-center justify-content-start">
+              <p class="fs-5 pt-3 me-2">
+                encoder = LabelEncoder()
+              </p>
+              <p>data[</p><p>] = encoder.fit_transform(data['Publisher'])</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-start">  
+            <p class="fs-5 pt-3 me-2">] = encoder.fit_transform(data['Genre'])</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-start">
+                <p class="fs-5 pt-3 me-2">data["</p>
+                <select
+                class="form-select"
+                style="width: 140px"
+                aria-label="Default select example"
+              >
+                <option selected>Genre</option>
+                <option value="1">User-Score</option>
+                <option value="2">User-count</option>
+              </select>
+              <p class="fs-5 pt-3 me-2">""] = encoder.fit_transform(data['Genre'])</p>
+            </div>
+
+            <button id="run_import" class="btn btn-success align-self-center">
+              Run
+            </button>
+            <div
+              id="import_output"
+              class="border rounded d-none"
+              ">
+              <p style="color: rgb(43, 171, 8)" id="output_import">
+                Data encoded successufully !
+              </p>
+            </div>
+          </fieldset>
+
+          <fieldset class="border rounded p-2 mt-2">
+            <legend>Defining Features :</legend>
+            <div class="d-flex align-items-center justify-content-start">
+                <select
+                class="form-select"
+                style="width: 140px"
+                aria-label="Default select example"
+              >
+                <option selected>Features</option>
+                <option value="1">Target</option>
+              </select>
+
+              <p class="fs-5 pt-3 me-2">
+                = ['Genre', 'Publisher', 'Critic_Score', 'Critic_Count', 'User_Score', 'User_Count']
+
+              </p>
+            </div>
+            <div class="d-flex align-items-center justify-content-start">
+                <select
+                class="form-select"
+                style="width: 140px"
+                aria-label="Default select example"
+              >
+                <option selected>Features</option>
+                <option value="1">Target</option>
+              </select>
+
+              <p class="fs-5 pt-3 me-2">
+                = ['MA_Sales']
+              </p>
+            </div>
+
+
+            <button id="run_import" class="btn btn-success align-self-center">
+              Run
+            </button>
+            <div
+              id="import_output"
+              class="border rounded d-none"
+              ">
+              <p style="color: rgb(43, 171, 8)" id="output_import">
+                Data encoded successufully !
+              </p>
+            </div>
+          </fieldset>
+          <fieldset class="border rounded p-2 mt-2">
+            <legend>Fetching Data  :</legend>
+            <div class="d-flex align-items-center justify-content-start">
+                <select
+                class="form-select"
+                style="width: 140px"
+                aria-label="Default select example"
+              >
+                <option selected>X</option>
+                <option value="1">Y</option>
+              </select>
+
+              <p class="fs-5 pt-3 me-2">
+                = data[features]
+              </p>
+            </div>
+            <div class="d-flex align-items-center justify-content-start">
+                <select
+                class="form-select"
+                style="width: 140px"
+                aria-label="Default select example"
+              >
+                <option selected>X</option>
+                <option value="1">Y</option>
+              </select>
+
+              <p class="fs-5 pt-3 me-2">
+                = data[target]
+              </p>
+            </div>
+
+
+            <button id="run_import" class="btn btn-success align-self-center">
+              Run
+            </button>
+            <div
+              id="import_output"
+              class="border rounded d-none"
+              >
+              <p style="color: rgb(43, 171, 8)" id="output_import">
+                Data encoded successufully !
+              </p>
+            </div>
+          </fieldset>
+          <fieldset class="border rounded p-2 mt-2">
+            <legend>Training the Model :</legend>
+        </fieldset>
+        <div>
+        <p class="fs-5 pt-3 me-2">
+            model = LinearRegression()
+          </p>
+        </div>
+        <div>
+            <label for=""></label>
+
+        </div>
+
+
+        <button id="run_import" class="btn btn-success align-self-center">
+          Run
+        </button>
+        <div
+          id="import_output"
+          class="border rounded d-none"
+          >
+          <p style="color: rgb(43, 171, 8)" id="output_import">
+            Data encoded successufully !
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/sidebarmenu.js"></script>
+    <script src="../assets/js/app.min.js"></script>
+
+    <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+    <script>
+        const run_import = document.getElementById("run_import");
+        console.log(run_import);
+        const output_import = document.getElementById("output_import");
+        console.log(output_import);
+        run_import.onclick = () => {
+          alert("Librairies imported ! ");
+        };
+
+    </script>
+  </body>
+</html>

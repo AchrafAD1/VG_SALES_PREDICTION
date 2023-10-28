@@ -41,7 +41,7 @@ def delete_missing_values() :
 
     # Save the cleaned DataFrame back to a CSV file
     df.to_csv('../data1.csv', index=False)
-
+    return 'DONE'
 
 if __name__ == '__main__':
     app.run(debug=True)

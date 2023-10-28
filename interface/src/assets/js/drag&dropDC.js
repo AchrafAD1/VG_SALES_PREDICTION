@@ -1,6 +1,6 @@
 var correctCards = 0;
 
-requests = ['','','','','','','','','','','','','',''];
+requests = ['','','','','','','','','','','','','','','','','',''];
 
 // Function to hide the success message
 function hideSuccessMessage() {
@@ -11,10 +11,11 @@ function hideSuccessMessage() {
   successMessage.style.width = '0';
   successMessage.style.height = '0';
 }
+[{}]
 reqChamps = ['Name', 'Year_of_Release', 'Genre', 'Publisher', 'MA_Sales', 'Critic_Score', 'Critic_Count', 'User_Score', 'User_Count', 'Developer', 'Rating']
-var numbers = ['SELECT', '*', 'FROM', 'GAMES', 'WHERE', 'MA_Sales != Null', {"barre":'|'}, 'Critic_Score != Null', {"barre":'|'}, 'Critic_Count != Null', {"barre":'|'}, 'User_Score != Null', {"barre":'|'}, 'User_Count != Null', {"barre":'|'}, 'Developer != Null', {"barre":'|'}, 'Rating != Null'
+var numbers = ['SELECT', '*', 'FROM', 'GAMES', 'WHERE', 'MA_Sales != Null', '|', 'Critic_Score != Null', '|', 'Critic_Count != Null', '|', 'User_Score != Null', '|', 'User_Count != Null', '|', 'Developer != Null', '|', 'Rating != Null'
 ];
-var reqPre = ['SELECT', {'etoile':"*"}, 'FROM', 'GAMES', 'WHERE', 'MA_Sales != Null', {"barre":'|'}, 'Critic_Score != Null', {"barre":'|'}, 'Critic_Count != Null', {"barre":'|'}, 'User_Score != Null', {"barre":'|'}, 'User_Count != Null', {"barre":'|'}, 'Developer != Null', {"barre":'|'}, 'Rating != Null'
+var reqPre = ['SELECT', '*', 'FROM', 'GAMES', 'WHERE', 'MA_Sales != Null', '|', 'Critic_Score != Null', '|', 'Critic_Count != Null', '|', 'User_Score != Null', '|', 'User_Count != Null', '|', 'Developer != Null', '|', 'Rating != Null'
 ];
 // Function to initialize the game
 function init() {
@@ -40,9 +41,10 @@ function init() {
     var card = document.createElement('div');
     card.textContent = numbers[i];
     card.dataset.number = numbers[i];
-    addedVal = numbers[i];
-    if (typeof(numbers[i]) == 'object') {addedVal = numbers[i]}
-    card.id = 'card' + addedVal ;
+    addedVal = numbers[i]
+    if (addedVal == '*') { addedVal = 'Etoile' }
+    else if (addedVal == '|') { addedVal = 'Barre' }
+    card.id = 'card' + addedVal;
     cardPile.appendChild(card);
     makeDraggable(card);
   }
@@ -83,8 +85,10 @@ function makeDroppable(slot) {
     event.preventDefault();
     var slotNumber = parseInt(event.target.dataset.number, 14);
     var cardNumber = event.dataTransfer.getData('text/plain');
-    // console.log(event.target.dataset.number)
-
+    if (cardNumber == '*'){cardNumber = "Etoile"}
+    else if (cardNumber == '|'){cardNumber = "Barre"}
+    console.log(cardNumber)
+    console.log(event.target.dataset.number)
     
       
       
@@ -96,6 +100,7 @@ function makeDroppable(slot) {
         event.target.removeEventListener('drop', null);
         // requests.push(cardNumber)
         requests[event.target.dataset.number-1] = cardNumber;
+
       
         event.target.appendChild(document.querySelector('#card' + cardNumber));
         console.log(document.querySelector('#card' + cardNumber))
